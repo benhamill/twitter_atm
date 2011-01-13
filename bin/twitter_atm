@@ -5,9 +5,9 @@ require 'twitter_atm'
 
 class TwitterAtm::Commands < Thor
   desc "start", "To start, put the username and your app secret in here."
-  method_options :secret => :string, :username => :string
+  method_options :consumer_secret => :required, :consumer_token => :required
   def start
-    puts 'Start!'
+    puts TwitterAtm::Client.pin_url(options[:consumer_token], options[:consumer_secret])
   end
 
   desc "finish", "Once you get the pin, put it in here."
