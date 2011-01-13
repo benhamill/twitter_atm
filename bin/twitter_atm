@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'twitter_atm'
+
+class TwitterAtm < Thor
+  desc "start", "To start, put the username and your app secret in here."
+  method_options :secret => :string, :username => :string
+  def start
+    puts 'Start!'
+  end
+
+  desc "finish", "Once you get the pin, put it in here."
+  method_options :pin => :string, :secret => :string
+  def finish
+    puts 'Finish!'
+  end
+end
