@@ -4,16 +4,23 @@ require 'thor'
 require 'twitter_atm'
 
 class TwitterAtm::Commands < Thor
-  desc "pin_url", "To start, put the username and your app secret in here."
-  method_options :consumer_key => :required, :consumer_secret => :required
-  def pin_url
-    puts "Go to #{TwitterAtm::Client.pin_url(options[:consumer_key], options[:consumer_secret])}"
-  end
+  include Thor::Actions
 
-  desc "finish", "Once you get the pin, put it in here."
-  method_options :pin => :string, :secret => :string
-  def finish
-    puts 'Finish!'
+  desc "get_creds --consumer_key=SOMEKEY --consumer_secret=SOMESECRET", "To start, put the username and your app secret in here."
+  method_options :consumer_key => :required, :consumer_secret => :required
+  def get_creds
+    client = TwitterAtm::Client.new(options[:consumer_key], options[:consumer_secret])
+
+    say "Requesting PIN..."
+    url = client.authorize_url
+    say "Go to #{url}"
+    pin = ask "Enter the pin here:"
+
+    say "Authorizing..."
+    token, secret = client.authorize pin
+    say "Store these somewhere in order to tweet as this user."
+    say "   token: #{token}"
+    say "  secret: #{secret}"
   end
 
   desc "version", "Displays the current version of twitter_atm."
