@@ -17,7 +17,6 @@ class TwitterAtm::Commands < Thor
       url = client.authorize_url
     rescue OAuth::Unauthorized => e
       say "Looks like you're not authorized. Did you put in the right keys?"
-      say options[:consumer_key] + options[:consumer_secret]
       exit
     end
 
