@@ -1,3 +1,5 @@
+require 'twitter_oauth'
+
 require 'twitter_atm/version'
 require 'twitter_atm/client'
 
