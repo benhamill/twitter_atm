@@ -1,3 +1,5 @@
+require 'twitter_oauth'
+
 class TwitterAtm::Client
   attr_accessor :client, :request_token
 
