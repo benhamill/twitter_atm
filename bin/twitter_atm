@@ -22,9 +22,15 @@ class TwitterAtm::Commands < Thor
 
     say "Go to #{url}"
     pin = ask "Enter the pin here:"
-
     say "Authorizing..."
-    token, secret = client.authorize pin
+
+    begin
+      token, secret = client.authorize pin
+    rescue OAuth::Unauthorized => e
+      say "Wrong PIN. Try again?"
+      exit
+    end
+
     say "Store these somewhere in order to tweet as this user."
     say "   token: #{token}"
     say "  secret: #{secret}"
