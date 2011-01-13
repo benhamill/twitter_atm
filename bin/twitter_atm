@@ -15,5 +15,10 @@ class TwitterAtm::Commands < Thor
   def finish
     puts 'Finish!'
   end
+
+  desc "version", "Displays the current version of twitter_atm."
+  def version
+    puts TwitterAtm.version
+  end
 end
 TwitterAtm::Commands.start
