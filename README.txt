@@ -16,3 +16,5 @@ $ twitter_atm --pin=1234567 --secret=309r8uy08gtg2orwhatever
 Your OAuth credentials are... some format. Haven't worked this out exactly.
 
 Simple.
+
+Props to @hoonpark for the name idea.
