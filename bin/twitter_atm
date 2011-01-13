@@ -6,13 +6,21 @@ require 'twitter_atm'
 class TwitterAtm::Commands < Thor
   include Thor::Actions
 
-  desc "get_creds --consumer_key=SOMEKEY --consumer_secret=SOMESECRET", "To start, put the username and your app secret in here."
+  desc "get_creds", "To start, put the username and your app secret in here."
   method_options :consumer_key => :required, :consumer_secret => :required
   def get_creds
     client = TwitterAtm::Client.new(options[:consumer_key], options[:consumer_secret])
 
     say "Requesting PIN..."
-    url = client.authorize_url
+
+    begin
+      url = client.authorize_url
+    rescue OAuth::Unauthorized => e
+      say "Looks like you're not authorized. Did you put in the right keys?"
+      say options[:consumer_key] + options[:consumer_secret]
+      exit
+    end
+
     say "Go to #{url}"
     pin = ask "Enter the pin here:"
 
