@@ -3,7 +3,7 @@
 require 'thor'
 require 'twitter_atm'
 
-class TwitterAtm < Thor
+class TwitterAtm::Commands < Thor
   desc "start", "To start, put the username and your app secret in here."
   method_options :secret => :string, :username => :string
   def start
@@ -16,3 +16,4 @@ class TwitterAtm < Thor
     puts 'Finish!'
   end
 end
+TwitterAtm::Commands.start
