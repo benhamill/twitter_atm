@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "twitter_atm"
   s.version     = TwitterAtm::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["Ben Hamill"]
+  s.email       = ["ben at benhamill dot com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Use the command line to navigate Twitter's PIN-based OAuth flow.}
+  s.description = %q{A simple command line tool for navigating Twitter's Pin-based OAuth path and outputting the credentials received to stdout.}
 
   s.rubyforge_project = "twitter_atm"
 
