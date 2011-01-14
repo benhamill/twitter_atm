@@ -13,7 +13,7 @@ $ twitter_atm --consumer_key=YOUR_CONSUMER_KEY --consumer_secret=YOUR_CONSUMER_S
 
 It will then tell you a URL to go to and prompt for a pin. Go to the URL, hit
 'Allow' and copy the PIN number into the prompt. Twitter_atm will then make
-another call and return you the access token and secret, which you can do with
+another call and return you the access token and secret, with which you can do
 whatever you like.
 
 Simple.
