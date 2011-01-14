@@ -7,6 +7,10 @@ looking up how to do this process, so I made a simple gem.
 
 Props to @hoonpark for the name idea.
 
+Assuming you have rubygems installed, installation is easy:
+
+$ gem install twitter_atm
+
 Usage is like this:
 
 $ twitter_atm --consumer_key=YOUR_CONSUMER_KEY --consumer_secret=YOUR_CONSUMER_SECRET
